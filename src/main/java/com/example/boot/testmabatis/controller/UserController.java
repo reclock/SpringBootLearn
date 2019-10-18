@@ -20,6 +20,11 @@ public class UserController {
         return userMapper.findById(id);
     }
 
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+
     @RequestMapping("/login")
     public String login(){
         return "login";
