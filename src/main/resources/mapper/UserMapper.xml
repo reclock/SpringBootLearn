@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.boot.testmabatis.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.boot.testmabatis.dao.User" >
+        <result column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="phone" property="phone" />
+    </resultMap>
+    <select id="findById" resultMap="BaseResultMap">
+        select * from persons where id = #{id}
+    </select>
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from persons
+    </select>
+
+    <!-- 查询-->
+    <select id="selectUser" resultType="com.example.boot.testmabatis.dao.User">
+        select * from user where firstname = #{firstname} and passwd = #{passwd};
+    </select>
+
+    <!-- 新增-->
+    <insert id="inserUser">
+        insert user (firstname,passwd) values (#{firstname},#{passwd})
+    </insert>
+</mapper>
